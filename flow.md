@@ -1,6 +1,5 @@
+%%{init: {'theme': 'neutral'}}%%
 flowchart LR
-  %% High-level AWS and Snowflake layout with VPC routing details
-
   subgraph AWS[Amazon Web Services (AWS) Account]
     direction LR
 
@@ -34,7 +33,6 @@ flowchart LR
     NP[Account-level Network Policy\nAllow: NAT EIP\nDeny: All others]
   end
 
-  %% Connectivity and data paths
   L1 -. Read credentials .-> SM
   L2 -. Read credentials .-> SM
   L1 -- HTTPS 443 --> NAT
@@ -43,7 +41,6 @@ flowchart LR
   IGW -- HTTPS 443 --> Svc
   NP -. attached to .-> Svc
 
-  %% Associations
   L1 --- SG
   L2 --- SG
   Private --- RTp
